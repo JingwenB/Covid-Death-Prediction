@@ -79,7 +79,7 @@ if __name__ == "__main__":
     # plt.plot([1, 2, 3, 4], 'r--', [1, 4, 9, 16], 'ro')
     # plt.show()
 
-    start_k = 100
+    start_k = 200
     plt.figure()
     N, D = ca_14_cases.shape
     a = ca_14_cases[start_k:, 1]

@@ -19,7 +19,7 @@ import linear_model
 import utils
 
 # get next  days case number, starting from T, using hyperparamater K
-def get_next_case_num(raw, feature,country,t,T,K):
+def fit_next_case_num(raw, feature,country,t,T,K):
     print(" " )
 
     # print("predicting for country:%s" % (country))
@@ -45,25 +45,28 @@ def get_next_case_num(raw, feature,country,t,T,K):
     print("Training error = %.3f" % trainError)
 
     # T+1
-    # x_T+1 = [1, dT−K+1, dT −K+2, . . . , dT]
     X_test = np.concatenate(([1], ca_case_ts[T - K + 1:T]), axis=0).reshape(1, K)
     y_test = np.array(ca_case_ts[T]).reshape(1, 1)
-    y_pred_curr = model.predict(X_test)
+    y_test_overall = y_test
+    y_pred = model.predict(X_test).reshape(1, 1)
     # print("predicted case number: %.3f, real case number: %.3f" % (y_pred_curr, y_test))
-
+    y_pred_overall = y_pred
     # predict
     for i in range(1, t):
         # print("day#: %d" % (i + 1))
-        X_test_i = np.concatenate(([1], ca_case_ts[T - K + 1 + i:T + i]), axis=0).reshape(1, K)
+        # new X_(T+1)
+        a=X_test[:,2:]
+        X_test = np.concatenate(([[1]], a, y_pred), axis=1)
         y_test_i = np.array(ca_case_ts[T + i]).reshape(1, 1)
-        y_pred_curr = model.predict(X_test_i)
-        print("predicted case number: %.3f, real case number: %.3f" % (y_pred_curr, y_test_i))
+        y_test_overall = np.concatenate((y_test_overall, y_test_i), axis=0)
+        y_pred = model.predict(X_test).reshape(1, 1)
+        print("predicted case number: %.3f, real case number: %.3f" % (y_pred, y_test_i))
+        y_pred_overall = np.concatenate((y_pred_overall,y_pred), axis=0)
+        # X_test = np.concatenate((X_test, X_test_i), axis=0)
 
-        X_test = np.concatenate((X_test, X_test_i), axis=0)
-        y_test = np.concatenate((y_test, y_test_i), axis=0)
 
-    y_pred = model.predict(X_test)
-    testError = np.mean((y_pred - y_test) ** 2)
+    # y_pred = model.predict(X_test)
+    testError = np.mean((y_pred_overall - y_test_overall) ** 2)
     print("Test error     = %.3f" % testError)
     return [trainError,testError]
 
@@ -79,23 +82,30 @@ if __name__ == "__main__":
     tr = []
     te = []
 
-    for k in range(3, 50):
-        retval = get_next_case_num(raw,"deaths", "CA", 11, 280, k)
+# train stage
+    for k in range(10, 13):
+        retval = fit_next_case_num(raw,"deaths", "CA", 5, 268, k)
         tr.append(retval[0])
         te.append(retval[1])
 
-    te_min = np.min(tr)
+    te_min = np.min(te)
     min_k = np.argmin(te)+3
 
     print("min: %.5f, K : %d" % (te_min, np.argmin(te)+3))
     plt.figure()
+
     plt.plot(te, "r", tr, "b")
     filename = os.path.join("..", "figs", "auto_reg_error.png")
     print("Saving", filename)
     plt.savefig(filename)
     plt.clf()
 
-    get_next_case_num(raw, "CA", 11, 260, min_k)
+#280 , 268-> 11, 280 ->11
+    fit_next_case_num(raw, "deaths","CA", 5, 268, min_k)
+
+# find best model with k value
+
+    # get_next_case_num(raw, "CA", 11, 260, min_k)
 
 
 
