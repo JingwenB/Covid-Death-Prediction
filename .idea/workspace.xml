@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdf05e6b-ef02-4ed6-9445-b571dc59f06b" name="Default Changelist" comment="make auto reg into function with k selection">
+    <list default="true" id="cdf05e6b-ef02-4ed6-9445-b571dc59f06b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/auto_reg_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/auto_reg_single_feature.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/linear_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/linear_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figs/auto_reg_error.png" beforeDir="false" afterPath="$PROJECT_DIR$/figs/auto_reg_error.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/kaggle$main_old.coverage" NAME="auto_reg_single_feature Coverage Results" MODIFIED="1603525357625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
+    <SUITE FILE_PATH="coverage/kaggle$main_old.coverage" NAME="lei Coverage Results" MODIFIED="1603576903266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
     <SUITE FILE_PATH="coverage/a3$main.coverage" NAME="main Coverage Results" MODIFIED="1602450841395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
   </component>
   <component name="FileEditorManager">
@@ -22,7 +20,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/main_old.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
+            <state relative-caret-position="314">
               <caret line="251" column="55" selection-start-line="251" selection-start-column="42" selection-end-line="251" selection-end-column="55" />
               <folding>
                 <element signature="e#10#25#0" expanded="true" />
@@ -31,24 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/code/auto_reg_single_feature.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="136" column="78" selection-start-line="136" selection-start-column="78" selection-end-line="136" selection-end-column="78" />
-              <folding>
-                <element signature="e#9#24#0" expanded="true" />
-                <element signature="e#861#945#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/linear_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="287" column="39" lean-forward="true" selection-start-line="287" selection-start-column="11" selection-end-line="287" selection-end-column="39" />
+            <state relative-caret-position="1401">
+              <caret line="268" selection-start-line="268" selection-end-line="268" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -69,32 +54,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/figs/100_case_death.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/figs/14_case_death.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code/findMin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/lei.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-64">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="-931">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#26#35#0" expanded="true" />
               </folding>
@@ -109,6 +72,18 @@
               <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/code/auto_reg_single_feature.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="131" column="11" lean-forward="true" selection-start-line="131" selection-start-column="11" selection-end-line="131" selection-end-column="11" />
+              <folding>
+                <element signature="e#9#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,15 +112,18 @@
         <option value="$PROJECT_DIR$/code/test.py" />
         <option value="$PROJECT_DIR$/code/auto_reg.py" />
         <option value="$PROJECT_DIR$/code/auto_reg_2.py" />
-        <option value="$PROJECT_DIR$/code/lei.py" />
         <option value="$PROJECT_DIR$/code/linear_model.py" />
+        <option value="$PROJECT_DIR$/code/lei.py" />
+        <option value="$PROJECT_DIR$/code/auto_reg_2feature.py" />
         <option value="$PROJECT_DIR$/code/auto_reg_single_feature.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="-1920" />
+    <option name="y" value="-220" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -228,7 +206,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="auto_reg_single_feature" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="lei" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="a3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -241,8 +219,8 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code/auto_reg_single_feature.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code/lei.py" />
+      <option name="PARAMETERS" value="-q 1" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -267,7 +245,7 @@
       <workItem from="1602730315957" duration="50000" />
       <workItem from="1602730468296" duration="433000" />
       <workItem from="1603177615652" duration="2406000" />
-      <workItem from="1603348229153" duration="45265000" />
+      <workItem from="1603348229153" duration="51252000" />
     </task>
     <task id="LOCAL-00001" summary="make auto reg into function with k selection">
       <created>1603446258060</created>
@@ -276,11 +254,18 @@
       <option name="project" value="LOCAL" />
       <updated>1603446258061</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="clean up linear reg, wrap with class, prediction are written into csv">
+      <created>1603525703806</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603525703807</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74888000" />
+    <option name="totallyTimeSpent" value="80875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,15 +277,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="-1920" y="-220" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2358643" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13471779" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4479452" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34455445" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
@@ -308,12 +294,12 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.15753424" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27534246" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35049504" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32876712" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.12035541" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.2518637" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -322,7 +308,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="make auto reg into function with k selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="make auto reg into function with k selection" />
+    <MESSAGE value="clean up linear reg, wrap with class, prediction are written into csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up linear reg, wrap with class, prediction are written into csv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -393,13 +380,6 @@
     <entry file="file://$PROJECT_DIR$/figs/us_date_case_death.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="309" selection-start-line="309" selection-end-line="309" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/figs/date_case_death.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -424,32 +404,12 @@
     <entry file="file://$PROJECT_DIR$/figs/date_100_cases.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/auto_reg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="e#9#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code/lei.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="e#26#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -467,6 +427,36 @@
     <entry file="file://$PROJECT_DIR$/figs/auto_reg_error.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/figs/100_case_death.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/numpy/lib/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="4612" selection-start-line="4612" selection-end-line="4612" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/lei.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-931">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#26#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/figs/14_case_death.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/code/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -477,15 +467,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/figs/14_case_death.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/figs/100_case_death.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/main_old.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
+        <state relative-caret-position="314">
           <caret line="251" column="55" selection-start-line="251" selection-start-column="42" selection-end-line="251" selection-end-column="55" />
           <folding>
             <element signature="e#10#25#0" expanded="true" />
@@ -493,23 +477,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/code/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code/linear_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="287" column="39" lean-forward="true" selection-start-line="287" selection-start-column="11" selection-end-line="287" selection-end-column="39" />
+        <state relative-caret-position="1401">
+          <caret line="268" selection-start-line="268" selection-end-line="268" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/auto_reg_single_feature.py">
+    <entry file="file://$PROJECT_DIR$/code/auto_reg_2feature.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="136" column="78" selection-start-line="136" selection-start-column="78" selection-end-line="136" selection-end-column="78" />
+        <state relative-caret-position="-99">
+          <caret line="89" column="46" lean-forward="true" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
           <folding>
             <element signature="e#9#24#0" expanded="true" />
-            <element signature="e#861#945#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/auto_reg_single_feature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="131" column="11" lean-forward="true" selection-start-line="131" selection-start-column="11" selection-end-line="131" selection-end-column="11" />
+          <folding>
+            <element signature="e#9#24#0" expanded="true" />
           </folding>
         </state>
       </provider>

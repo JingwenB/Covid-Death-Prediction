@@ -266,17 +266,17 @@ class LeastSquaresPolySinMulti:
         self.k = k
 
     def fit(self,X,y):
-        Z = self.__polySinBasis(X)
+        Z = self.__polySinBasismul(X)
         self.w = solve(Z.T @ Z, Z.T @ y)
 
     def predict(self, X):
-        Z = self.__polySinBasis(X)
+        Z = self.__polySinBasismul(X)
         return Z @ self.w
 
     # A private helper function to transform any matrix X into
     # the polynomial basis defined by this class at initialization
     # Returns the matrix Z that is the polynomial basis of X.
-    def __polySinBasis(self, X):
+    def __polySinBasismul(self, X):
         # poly part
         Z = np.ones((X.shape[0], 1))
         for i in range(1, self.p+1):
@@ -285,6 +285,6 @@ class LeastSquaresPolySinMulti:
 
         # sin part
         for i in range(1, self.k+1):
-            temp_X = np.sin(self.k * X)
+            temp_X = np.sin(i*X)
             Z = np.append(Z, temp_X, axis=1)
         return Z
