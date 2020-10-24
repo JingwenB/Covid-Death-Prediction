@@ -141,3 +141,150 @@ class LeastSquaresPoly:
             temp_X = np.power(X, i)
             Z = np.append(Z, temp_X, axis=1)
         return Z
+
+
+
+# Least Squares with polynomial and sin basis
+class LeastSquaresPolySin:
+    def __init__(self, p, k):
+        self.leastSquares = LeastSquares()
+        self.p = p
+        self.k = k
+
+    def fit(self,X,y):
+        Z = self.__polySinBasis(X)
+        self.w = solve(Z.T @ Z, Z.T @ y)
+
+    def predict(self, X):
+        Z = self.__polySinBasis(X)
+        return Z @ self.w
+
+    # A private helper function to transform any matrix X into
+    # the polynomial basis defined by this class at initialization
+    # Returns the matrix Z that is the polynomial basis of X.
+    def __polySinBasis(self, X):
+        # poly part
+        Z = np.ones((X.shape[0], 1))
+        for i in range(1, self.p+1):
+            temp_X = np.power(X, i)
+            Z = np.append(Z, temp_X, axis=1)
+
+        # sin part
+        sin_k = np.sin(self.k * X)
+        Z = np.append(Z, sin_k, axis=1)
+
+        return Z
+
+# Least Squares with exp basis
+class LeastSquaresExp:
+    def __init__(self, p):
+        self.leastSquares = LeastSquares()
+        self.p = p
+
+    def fit(self, X, y):
+        n, d = X.shape
+        Z = self.__expBasis(X)
+        self.leastSquares.fit(Z, y)
+
+    def predict(self, X):
+        Z = self.__expBasis(X)
+        return self.leastSquares.predict(Z)
+
+    # A private helper function to transform any matrix X into
+    # the polynomial basis defined by this class at initialization
+    # Returns the matrix Z that is the polynomial basis of X.
+    def __expBasis(self, X):
+        return np.exp(X * np.arange(self.p + 1))
+
+
+
+# Least Squares with ploy basis and exp basis
+class LeastSquaresPolyExp:
+    def __init__(self, p, k):
+        self.leastSquares = LeastSquares()
+        self.p = p
+        self.k = k
+
+    def fit(self, X, y):
+        n, d = X.shape
+        Z = self.__polyexpBasis(X)
+        self.leastSquares.fit(Z, y)
+
+    def predict(self, X):
+        Z = self.__polyexpBasis(X)
+        return self.leastSquares.predict(Z)
+
+    # A private helper function to transform any matrix X into
+    # the polynomial + exp basis
+    def __polyexpBasis(self, X):
+        # poly columns
+        Z = np.ones((X.shape[0], 1))
+        for i in range(1, self.p + 1):
+            temp_X = np.power(X, i)
+            Z = np.append(Z, temp_X, axis=1)
+        # exp columns
+        exp_k = np.exp(X * self.k)
+        Z = np.append(Z, exp_k, axis=1)
+        return Z
+
+
+# Least Squares with ploy basis and exp basis
+class LeastSquaresPolyLog:
+    def __init__(self, p, k):
+        self.leastSquares = LeastSquares()
+        self.p = p
+        self.k = k
+
+    def fit(self, X, y):
+        n, d = X.shape
+        Z = self.__polyexpBasis(X)
+        self.leastSquares.fit(Z, y)
+
+    def predict(self, X):
+        Z = self.__polyexpBasis(X)
+        return self.leastSquares.predict(Z)
+
+    # A private helper function to transform any matrix X into
+    # the polynomial + exp basis
+    def __polyexpBasis(self, X):
+        # poly columns
+        Z = np.ones((X.shape[0], 1))
+        for i in range(1, self.p + 1):
+            temp_X = np.power(X, i)
+            Z = np.append(Z, temp_X, axis=1)
+        # exp columns
+        exp_k = np.exp(X * self.k)
+        Z = np.append(Z, exp_k, axis=1)
+        return Z
+
+
+# Least Squares with polynomial and sin basis
+class LeastSquaresPolySinMulti:
+    def __init__(self, p, k):
+        self.leastSquares = LeastSquares()
+        self.p = p
+        self.k = k
+
+    def fit(self,X,y):
+        Z = self.__polySinBasis(X)
+        self.w = solve(Z.T @ Z, Z.T @ y)
+
+    def predict(self, X):
+        Z = self.__polySinBasis(X)
+        return Z @ self.w
+
+    # A private helper function to transform any matrix X into
+    # the polynomial basis defined by this class at initialization
+    # Returns the matrix Z that is the polynomial basis of X.
+    def __polySinBasis(self, X):
+        # poly part
+        Z = np.ones((X.shape[0], 1))
+        for i in range(1, self.p+1):
+            temp_X = np.power(X, i)
+            Z = np.append(Z, temp_X, axis=1)
+
+        # sin part
+        for i in range(1, self.k+1):
+            temp_X = np.sin(self.k * X)
+            Z = np.append(Z, temp_X, axis=1)
+        return Z
