@@ -30,7 +30,7 @@ class autoReg():
 
     # fit linear auto reg, to predict next t days starting from T,
     # with hyperparamater K
-    def fit(self,t,T,K):
+    def fit(self,t,T,K,label):
 
         ts = self.ts
         y = ts[K - 1:T]  # size = T-K
@@ -42,19 +42,21 @@ class autoReg():
             X = np.concatenate((X, x_j), axis=1)
 
         # train
-        model = linear_model.LeastSquares()
-        model.fit(X, y)
+        self.model = linear_model.LeastSquares()
+        self.model.fit(X, y)
 
-        yhat = model.predict(X)
+        yhat = self.model.predict(X)
         trainError = np.mean((yhat - y) ** 2)
-        # print("Training error = %.3f" % trainError)
+        if label:
+            print("Training error = %.3f" % trainError)
 
         # T+1
         X_test = np.concatenate(([1], ts[T - K + 1:T]), axis=0).reshape(1, K)
         y_test = np.array(ts[T]).reshape(1, 1)
         y_test_overall = y_test
-        y_pred = model.predict(X_test).reshape(1, 1)
-        # print("predicted case number: %.3f, real case number: %.3f" % (y_pred, y_test))
+        y_pred = self.model.predict(X_test).reshape(1, 1)
+        if label:
+            print("In test, predicted number: %.3f, real number: % .3f" % (y_pred, y_test))
         y_pred_overall = y_pred
         # predict
         for i in range(1, t):
@@ -63,43 +65,22 @@ class autoReg():
             X_test = np.concatenate(([[1]], a, y_pred), axis=1)
             y_test_i = np.array(ts[T + i]).reshape(1, 1)
             y_test_overall = np.concatenate((y_test_overall, y_test_i), axis=0)
-            y_pred = model.predict(X_test).reshape(1, 1)
-            # print("predicted case number: %.3f, real case number: %.3f" % (y_pred, y_test_i))
+            y_pred = self.model.predict(X_test).reshape(1, 1)
+            if label:
+                print("In test, predicted number: %.3f, real number: % .3f" % (y_pred, y_test))
             y_pred_overall = np.concatenate((y_pred_overall,y_pred), axis=0)
 
         testError = np.mean((y_pred_overall - y_test_overall) ** 2)
-        # print("Test error     = %.3f" % testError)
-        return [trainError,testError, model, y_test_overall, y]
-
-    # iterate through k , to find best k with min test error
-    def find_best_k(self,t,T):
-        tr = []
-        te = []
-        k_largest= 60
-        if(T<k_largest):
-            k_largest = 20
+        if label:
+            print("Test error     = %.3f" % testError)
+        return [trainError,testError, self.model, y_test_overall, y]
 
 
-        for k in range(2, k_largest):
-            retval = auto_1.fit(t,T,k)
-            tr.append(retval[0])
-            te.append(retval[1])
-
-        te_min = np.min(te)
-        min_k = np.argmin(te) + 2
-
-        print("min: %.5f, K:%d" % (te_min, np.argmin(te) + 2))
-
-        self.model = auto_1.fit(t, T, min_k)[2]
-        y_pred_overall =auto_1.fit(t, T, min_k)[3]
-        y_test_overall = auto_1.fit(t, T, min_k)[4]
-        self.K = min_k
 
     # use existing model with selected k to run prediction for next t days, not about to test with test error
-    def predict(self,t):
+    def predict(self,t,K):
         model = self.model
         ts = self.ts
-        K = self.K
         T = len(ts)
 
         X_pred = np.concatenate(([1], ts[T - K + 1:T]), axis=0).reshape(1, K)
@@ -116,6 +97,23 @@ class autoReg():
 
         return y_pred_overall
 
+  # iterate through k , to find best k with min test error
+def find_best_k(model,t,T):
+        tr = []
+        te = []
+        k_largest= 10
+        for k in range(2, k_largest):
+            # print("\n k=%d"% k)
+            retval = model.fit(t,T,k,False)
+            tr.append(retval[0])
+            te.append(retval[1])
+
+        te_min = np.min(te)
+        min_k = np.argmin(te) + 2
+        print("min: %.5f, K:%d" % (te_min, np.argmin(te) + 2))
+
+        return min_k
+
 
 if __name__ == "__main__":
     filename = "phase1_training_data.csv"
@@ -125,16 +123,35 @@ if __name__ == "__main__":
 
 
 # train stage
-    auto_1 = autoReg(raw, "deaths", "CA")
-    auto_1.find_best_k(11, 268)
-#  predict
-    pred = auto_1.predict(11)
+#     auto_death = autoReg(raw, "deaths", "CA")
+#     auto_death.find_best_k(11, 268)
+# #  predict
+#     pred = auto_death.predict(11)
 # write to csv
-    df = pd.DataFrame(pred, columns=["death"])
-    id_11 = [0,1,2,3,4,5,6,7,8,9,10]
-    df.insert(1, "id", id_11, True)
 
-    df.to_csv(os.path.join("..", "data", "phase1_prediction.csv"), index=False)
+    T = 268
+    t = 11
+# case model
+    cases_model = autoReg(raw, "cases_100k", "CA")
+    cases_k = find_best_k(cases_model, t,  T)
+    print("final case_model: ")
+    cases_model.fit(t,  T,cases_k,True)
+    cases_model.predict(t,cases_k)
+
+# death model
+#     death_model = autoReg(raw, "deaths", "CA")
+#     death_k = find_best_k(death_model, t,  T)
+#     print("final death_model: ")
+#     death_model.fit(t,  T, death_k,True)
+#     death_model.predict(t, death_k)
+
+
+
+    # df = pd.DataFrame(pred, columns=["death"])
+    # id_11 = [0,1,2,3,4,5,6,7,8,9,10]
+    # df.insert(1, "id", id_11, True)
+    #
+    # df.to_csv(os.path.join("..", "data", "phase1_prediction.csv"), index=False)
 
 
     # for i in range(1, 25):
