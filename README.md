@@ -16,4 +16,5 @@ we built before on the new dataset, to predict Canadian daily Covid-19 death tot
 2020.
 
 Kaggle link for phase1: https://www.kaggle.com/c/cpsc-340-midterm-competition-phase1
+
 Kaggle link for phase2: https://www.kaggle.com/c/cpsc-340-midterm-competition-phase2
